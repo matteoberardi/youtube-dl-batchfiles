@@ -30,10 +30,10 @@ if [[ $arc == 64 ]]; then
   echo
   wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
   tar -xvf phantomjs-2.1.1-linux-x86_64.tar.bz2 && rm -rf phantomjs-2.1.1-linux-x86_64.tar.bz2
-  [[ -f ${HOME}/.bashrc ]] && echo >> ${HOME}/.bashrc && echo "export \$PATH=${youtube_dl_batch_files_dir}/.phantomjs/phantomjs-2.1.1-linux-x86_64.tar.bz2/bin:\${PATH}" >> ${HOME}/.bashrc
-  [[ -f ${HOME}/.zshrc ]] && echo >> ${HOME}/.zshrc && echo "export \$PATH=${youtube_dl_batch_files_dir}/.phantomjs/phantomjs-2.1.1-linux-x86_64.tar.bz2/bin:\${PATH}" >> ${HOME}/.zshrc
+  [[ -f ${HOME}/.bashrc ]] && echo >> ${HOME}/.bashrc && echo "export \$PATH=${youtube_dl_batch_files_dir}/.phantomjs/phantomjs-2.1.1-linux-x86_64/bin:\${PATH}" >> ${HOME}/.bashrc
+  [[ -f ${HOME}/.zshrc ]] && echo >> ${HOME}/.zshrc && echo "export \$PATH=${youtube_dl_batch_files_dir}/.phantomjs/phantomjs-2.1.1-linux-x86_64/bin:\${PATH}" >> ${HOME}/.zshrc
   echo
-  echo "==> Restart your shell to get things work. If PhantomJS doesn't work, add this line, but without quotes, in your shell's config file: 'export \$PATH=${youtube_dl_batch_files_dir}/.phantomjs/phantomjs-2.1.1-linux-x86_64.tar.bz2/bin:\${PATH}'"
+  echo "==> Restart your shell to get things work. If PhantomJS doesn't work, add this line, but without quotes, in your shell's config file: 'export \$PATH=${youtube_dl_batch_files_dir}/.phantomjs/phantomjs-2.1.1-linux-x86_64/bin:\${PATH}'"
   exit 0
 elif [[ $arc == 32 ]]; then
   rm -rf .phantomjs
@@ -44,9 +44,9 @@ elif [[ $arc == 32 ]]; then
   echo
   wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-i686.tar.bz2
   tar -xvf phantomjs-2.1.1-linux-i686.tar.bz2 && rm -rf phantomjs-2.1.1-linux-i686.tar.bz2
-  [[ -f ${HOME}/.bashrc ]] && echo >> ${HOME}/.bashrc && echo "export \$PATH=${youtube_dl_batch_files_dir}/.phantomjs/phantomjs-2.1.1-linux-i686.tar.bz2/bin:\${PATH}" >> ${HOME}/.bashrc
-  [[ -f ${HOME}/.zshrc ]] && echo >> ${HOME}/.zshrc && echo "export \$PATH=${youtube_dl_batch_files_dir}/.phantomjs/phantomjs-2.1.1-linux-i686.tar.bz2/bin:\${PATH}" >> ${HOME}/.zshrc
+  [[ -f ${HOME}/.bashrc ]] && echo >> ${HOME}/.bashrc && echo "export \$PATH=${youtube_dl_batch_files_dir}/.phantomjs/phantomjs-2.1.1-linux-i686/bin:\${PATH}" >> ${HOME}/.bashrc
+  [[ -f ${HOME}/.zshrc ]] && echo >> ${HOME}/.zshrc && echo "export \$PATH=${youtube_dl_batch_files_dir}/.phantomjs/phantomjs-2.1.1-linux-i686/bin:\${PATH}" >> ${HOME}/.zshrc
   echo
-  echo "==> Restart your shell to get things work. If PhantomJS doesn't work, add this line, but without quotes, in your shell's config file: 'export \$PATH=${youtube_dl_batch_files_dir}/.phantomjs/phantomjs-2.1.1-linux-i686.tar.bz2/bin:\${PATH}'"
+  echo "==> Restart your shell to get things work. If PhantomJS doesn't work, add this line, but without quotes, in your shell's config file: 'export \$PATH=${youtube_dl_batch_files_dir}/.phantomjs/phantomjs-2.1.1-linux-i686/bin:\${PATH}'"
   exit 0
 fi
