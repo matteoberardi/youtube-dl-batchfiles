@@ -1,4 +1,12 @@
 .mp4
+.avi
+.mkv
+.ogg
+.m4a
+.aac
+.wav
+.flac
+.mp3
 .phantomjs
-downloaded
+downloaded/*
 .masiero
