@@ -1,8 +1,5 @@
 #!/usr/bin/env sh
-# baydl.sh (Script written in BASH that automates the download process of the videos from youtube-dl using the provided batch files)
-# vim:ft=sh
-#
-# Created by Matteo Guarda
+# Script written in BASH that automates the download process of the videos from youtube-dl using the provided batch files
 
 
 # Help text

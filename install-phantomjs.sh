@@ -1,8 +1,5 @@
 #!/usr/bin/env sh
-# install-phantom.js (You need to run this if you want to download/stream from openload.co and other sites that aren't natively supported by youtube-dl)
-# vim:ft=sh
-#
-# Created by Matteo Guarda
+# You need to run this if you want to download/stream from openload.co and other sites that aren't natively supported by youtube-dl
 
 
 youtube_dl_batch_files_dir=$(pwd)
