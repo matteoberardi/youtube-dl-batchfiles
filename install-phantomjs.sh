@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 # You need to run this if you want to download/stream from openload.co and other sites that aren't natively supported by youtube-dl
 
 
