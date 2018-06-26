@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# You need to run this if you want to download/stream from openload.co and other sites that aren't natively supported by youtube-dl
+# You need to run this if you want to download/stream from openload.co and other sites that aren't natively supported by youtube-dl.
 
 
 youtube_dl_batch_files_dir=$(pwd)
@@ -13,7 +13,7 @@ which wget &> /dev/null; [[ $? != 0 ]] && echo && echo "==> You need to install 
 
 
 echo
-echo "==> Are you running a 64 bit or 32 bit GNU/Linux system? Enter only the number:"
+echo "==> Are you using a 64 bit or 32 bit GNU/Linux system? Enter only the number:"
 read -p "==> " arc
 
 

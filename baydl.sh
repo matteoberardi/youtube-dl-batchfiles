@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# Script written in BASH that automates the download process of the videos from youtube-dl using the provided batch files
+# Script written in bash that automates the download process of the videos from youtube-dl using the provided batch files.
 
 
-# Help text
+# Help text.
 help() {
   echo "BAtchYoutube-DL"
   echo "(https://github.com/matteoguarda/youtube-dl-batchfiles)"
@@ -17,7 +17,7 @@ help() {
 }
 
 
-# This is required if you run the script with wget and not by cloning the repo
+# This is required if you run the script with wget and not by cloning the repo.
 if [ ! -d batch-files ]; then
   git clone https://github.com/matteoguarda/youtube-dl-batchfiles --depth 1
   cd youtube-dl-batchfiles
@@ -28,11 +28,11 @@ if [ ! -d downloaded ]; then
 fi
 
 
-# With these lines an alias for baydl.sh should work
-# For example you can try to put this in your .bashrc or .zshrc: alias baydl="cd [path to youtube-dl-batchfiles] && ./baydl.sh"
-# Note that the alias won't work when launching the script in its short form
+# With these lines an alias for baydl.sh should work.
+# For example you can try to put this in your .bashrc or .zshrc: alias baydl="cd [path to youtube-dl-batchfiles] && ./baydl.sh".
+# Note that the alias won't work when launching the script in its short form.
 root=$(pwd)
-# Delete .masiero files
+# Delete .masiero files.
 delmastot() {
   delmas() {
     rm -rf .megasiero
@@ -45,55 +45,7 @@ delmastot
 cd ${root}/batch-files
 
 
-# Crono function
-crono() {
-  echo
-  read -p "==> Premi [INVIO] quando sei pronto a iniziare: " agnipau
-  echo
-
-  ore_prima=$(echo $(echo $(date) | cut -d " " -f 5 ) | cut -d . -f 1)
-  minuti_prima=$(echo $(echo $(date) | cut -d " " -f 5 ) | cut -d . -f 2)
-  secondi_prima=$(echo $(echo $(echo $(date) | cut -d " " -f 5 ) | cut -d . -f 3) | cut -d , -f 1)
-
-
-  echo
-  read -p "==> Premi [INVIO] quando hai finito: " agnipau
-  echo
-
-  ore_dopo=$(echo $(echo $(date) | cut -d " " -f 5 ) | cut -d . -f 1)
-  minuti_dopo=$(echo $(echo $(date) | cut -d " " -f 5 ) | cut -d . -f 2)
-  secondi_dopo=$(echo $(echo $(echo $(date) | cut -d " " -f 5 ) | cut -d . -f 3) | cut -d , -f 1)
-
-
-  ore_finali=$(( $ore_dopo - $ore_prima ))
-  minuti_finali=$(( $minuti_dopo - $minuti_prima ))
-  secondi_finali=$(( $secondi_dopo - $secondi_prima ))
-
-  if [ $(printf $ore_finali | wc -m ) -eq 1 ]; then
-    ore_finali="0${ore_finali}"
-  fi
-  if [ $(printf $minuti_finali | wc -m ) -eq 1 ]; then
-    minuti_finali="0${minuti_finali}"
-  fi
-  if [ $(printf $secondi_finali | wc -m ) -eq 1 ]; then
-    secondi_finali="0${secondi_finali}"
-  fi
-
-  tempo_prima=$(echo ${ore_prima}:${minuti_prima}:${secondi_prima})
-  tempo_dopo=$(echo ${ore_dopo}:${minuti_dopo}:${secondi_dopo})
-  tempo_finale=$(echo ${ore_finali}:${minuti_finali}:${secondi_finali})
-
-
-  echo
-  echo "==> Hai iniziato alle $tempo_prima"
-  echo "==> Hai finito alle $tempo_dopo"
-  echo
-  echo "==> Ci hai messo $tempo_finale"
-  echo
-}
-
-
-# Category prompt
+# Category prompt.
 category() {
   clear
   echo
@@ -118,7 +70,7 @@ category() {
 }
 
 
-# Language prompt
+# Language prompt.
 lang() {
   clear
   echo
@@ -147,7 +99,7 @@ lang() {
 }
 
 
-# Small function for controlling the exit code of youtube-dl and open the chosen batch file in the default editor if the download fails
+# Small function for controlling the exit code of youtube-dl and open the chosen batch file in the default editor if the download fails.
 ydl_control_ecode() {
   if [ $? -eq 0 ]; then
     clear
@@ -165,7 +117,7 @@ ydl_control_ecode() {
 }
 
 
-# Small function for controlling the exit code of mpv and open the chosen batch file in the default editor if an error occurs
+# Small function for controlling the exit code of mpv and open the chosen batch file in the default editor if an error occurs.
 mpv_control_ecode() {
   if [ ! $? -eq 0 ]; then
     clear
@@ -178,7 +130,7 @@ mpv_control_ecode() {
 }
 
 
-# Fetch the extension of the video
+# Fetch the extension of the video.
 ext_fetcher() {
   if [ "$(head -n $(( $chosen_line * 2 )) ../../batch-files/$chosen_category/$chosen_lang/$chosen_batch_dir/$chosen_batch_file | tail -1 | cut -d / -f 3)" = "vvvvid.it" ]; then
     ext=$(youtube-dl --get-filename $(head -n $(( $chosen_line * 2 )) ../../batch-files/$chosen_category/$chosen_lang/$chosen_batch_dir/$chosen_batch_file | tail -1) | cut -d . -f2)
@@ -192,7 +144,7 @@ ext_fetcher() {
 }
 
 
-# Modality prompt
+# Modality prompt.
 modality_func() {
   clear
   echo
@@ -239,7 +191,7 @@ modality_func() {
 }
 
 
-# Single episode downloader
+# Single episode downloader.
 single_mod() {
   clear
   echo
@@ -273,7 +225,7 @@ single_mod() {
 }
 
 
-# All episodes downloader
+# All episodes downloader.
 all_mod() {
   chosen_line=1
   ext_fetcher
@@ -285,7 +237,7 @@ all_mod() {
 }
 
 
-# From to end episode downloader
+# From to end episode downloader.
 from_mod() {
   clear
   echo
@@ -323,7 +275,7 @@ from_mod() {
 }
 
 
-# From-to episode downloader
+# From-to episode downloader.
 from_to_mod() {
   clear
   echo
@@ -375,7 +327,7 @@ from_to_mod() {
 }
 
 
-# Download last video using youtube-dl
+# Download last video using youtube-dl.
 last_down_mod() {
   chosen_line=$(( $(wc -l ../../batch-files/$chosen_category/$chosen_lang/$chosen_batch_dir/$chosen_batch_file | cut -d " " -f 1) / 2 ))
   ext_fetcher
@@ -384,7 +336,7 @@ last_down_mod() {
 }
 
 
-# Stream last video using mpv
+# Stream last video using mpv.
 last_stream_mod() {
   chosen_line= $(( $(wc -l ../../batch-files/$chosen_category/$chosen_lang/$chosen_batch_dir/$chosen_batch_file | cut -d " " -f 1) / 2 ))
   mpv $(head -n $(( $chosen_line * 2 )) ../../batch-files/$chosen_category/$chosen_lang/$chosen_batch_dir/$chosen_batch_file | tail -1)
@@ -392,7 +344,7 @@ last_stream_mod() {
 }
 
 
-# Stream a video using mpv
+# Stream a video using mpv.
 stream_mod() {
   clear
   echo
@@ -425,7 +377,7 @@ stream_mod() {
 }
 
 
-# Main function that includes other important functions
+# Main function that includes other important functions.
 batch_file() {
 pass=0
 while [ $pass -lt 2 ]; do
@@ -507,7 +459,7 @@ done
 }
 
 
-# Short way to use the script by using some of its options
+# Short way to use the script by using some of its options.
 short_way() {
   if [ -d $chosen_category ]; then
     cd $chosen_category
@@ -566,7 +518,7 @@ short_way() {
 }
 
 
-# Func to view all the tree
+# Function to view all the tree.
 view_all() {
   echo
   for i in $(ls); do echo "  ==> $i"; cd $i; for m in $(ls); do echo "    => $m"; cd $m; for g in $(ls); do echo "      -> $g"; cd $g; for f in $(ls); do echo "        > $f"; done; cd ..; done; cd ..; done; cd ..; done
@@ -574,7 +526,7 @@ view_all() {
 }
 
 
-# Func to view all the available modalities
+# Function to view all the available modalities.
 view_modalities() {
   echo
   echo "all         -> download all the videos in the chosen batch file."
@@ -591,7 +543,7 @@ view_modalities() {
 [ $# -eq 0 ] && category && lang && batch_file
 
 
-# Provide options
+# Provide options.
 case $1 in
   -h|--help)
     help
